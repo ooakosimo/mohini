@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+html, body {
+  background-color: #0b0b0b;
+  color: #f1f1f1;
+  font-family: 'IM Fell English', serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 700px;
+  margin: 5vh auto;
+  padding: 2rem;
+  border: 1px dashed #444;
+  background: rgba(15, 15, 15, 0.95);
+  box-shadow: 0 0 20px #111;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+
+.sigil {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+/* Floating sigils */
+body::before, body::after {
+  content: '☍   ⟁   ∴   🜏';
+  font-size: 3rem;
+  position: fixed;
+  white-space: nowrap;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+  animation: float-sigils 60s linear infinite;
+}
+
+body::after {
+  content: '🝊   🜚   ☿   ☌';
+  top: 60%;
+  left: -30%;
+  animation-delay: 30s;
+}
+
+@keyframes float-sigils {
+  0% { transform: translateX(-50vw) translateY(0); }
+  50% { transform: translateX(50vw) translateY(-10vh); }
+  100% { transform: translateX(-50vw) translateY(0); }
+}
+
+/* Shimmer effect */
+main::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, #f81ce580, transparent);
+  transform: rotate(25deg);
+  animation: shimmer 6s infinite linear;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: lighten;
+  opacity: 0.05;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
+}
+
+p, footer {
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 3rem;
+}
+
+.nav {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.nav a {
+  color: #f81ce5;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  border-bottom: 1px dashed #f81ce5;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover {
+  opacity: 0.6;
+}
